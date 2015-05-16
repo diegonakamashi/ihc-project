@@ -1,0 +1,22 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">
+      <span class="ion-model-s"></span> Create Car
+    </h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeCreate()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="createCar(car)">
+      <div class="list">
+        <admin-car-form car="car"/>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">
+            <span class="ion-checkmark-round"></span> Create
+          </button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

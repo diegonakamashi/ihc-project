@@ -1,0 +1,20 @@
+<ion-view>
+  <ion-header-bar>
+    <h1>Cars</h1>
+  </ion-header-bar>
+  <ion-content>
+    <div class="card" ng-repeat="car in cars" ng-click="edit()">
+      <div class="item item-divider">
+        <h3>{{ car.name }}</h3>
+      </div>
+      <div class="item item-text-wrap">
+        <div>
+          <strong>Lançamento:</strong> {{ car.releaseDate }}
+        </div>
+        <div>
+          <strong>Preço Base:</strong> R$ {{ car.basePrice }}
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
