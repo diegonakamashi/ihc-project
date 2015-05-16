@@ -1,4 +1,5 @@
 angular.module('ihc-project')
+
 .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/app/playlists');

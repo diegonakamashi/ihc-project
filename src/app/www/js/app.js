@@ -1,4 +1,4 @@
-angular.module('ihc-project', ['ionic', 'starter.controllers'])
+angular.module('ihc-project', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
