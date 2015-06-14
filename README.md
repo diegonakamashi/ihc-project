@@ -5,7 +5,7 @@
 Clone rescursively
 
 ```
-  git clone --rescursive git@github.com:kiyoshijo/ihc-project.git
+  git clone --recursive git@github.com:kiyoshijo/ihc-project.git
 ```
 
 ## Running the app

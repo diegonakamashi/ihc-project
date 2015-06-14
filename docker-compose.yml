@@ -12,6 +12,6 @@ server:
   ports:
     - "3000:3000"
   volumes:
-    - backend:/backend
+    - ihc-backend:/backend
   links:
     - mongo
