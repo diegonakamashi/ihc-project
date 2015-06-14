@@ -1,0 +1,17 @@
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+
+server:
+  image: node:0.10.38
+  command: "bash -c 'npm install && npm start'"
+  working_dir: /backend
+  environment:
+    - NODE_ENV=local
+  ports:
+    - "3000:3000"
+  volumes:
+    - ihc-backend:/backend
+  links:
+    - mongo
