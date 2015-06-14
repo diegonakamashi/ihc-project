@@ -1,5 +1,13 @@
 # IHC Project
 
+## Cloning the project
+
+Clone rescursively
+
+```
+  git clone --rescursive git@github.com:kiyoshijo/ihc-project.git
+```
+
 ## Running the app
 
 Install node & npm (https://nodejs.org/)
