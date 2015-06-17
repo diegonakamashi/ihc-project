@@ -12,7 +12,7 @@ angular.module('ihc')
           method: 'POST',
           data: auth
         }).success(function (data) {
-          $localStorage.setObject('accessToken', data.token);
+          $localStorage.set('accessToken', data.token.id);
           resolve(data.token);
         }).error(reject);
       });
