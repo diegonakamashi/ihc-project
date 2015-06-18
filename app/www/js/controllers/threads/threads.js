@@ -52,25 +52,24 @@ angular.module('ihc')
     });
   };
 
-  threads.filterLanguage = function (options) {
-    options.where = {};
-    if (languages.current) {
-      options.where.languageId = languages.current;
-    }
-  };
-
   threads.filterPagination = function (options) {
     // TODO (infinite scroll)
   };
 
   threads.load = function () {
+    if (!languages.current) {
+      $scope.languageModal.show();
+      return;
+    }
     var options = {
+      where: {
+        languageId: languages.current
+      },
       include: 'user',
       order: 'created desc'
     };
-    threads.filterLanguage(options);
     threads.filterPagination(options);
-    $loadingBox.show('icon');
+    $loadingBox.show();
     $threads.get(options).success(function (data) {
       threads.all = data;
       $loadingBox.hide();

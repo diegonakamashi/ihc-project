@@ -58,6 +58,7 @@ angular.module('ihc')
         }).success(function (data) {
           $localStorage.set('accessToken', null);
           $localStorage.set('userId', null);
+          $localStorage.set('currentLanguage', null);
           resolve({ success: true });
         }).error(reject);
       });

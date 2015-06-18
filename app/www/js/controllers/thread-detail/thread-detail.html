@@ -1,14 +1,37 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<ion-view view-title="{{chat.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{chat.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{chat.lastText}}
-    </p>
+<ion-view class="thread-detail-container">
+  <ion-header-bar>
+    <a class="back-link" href="#/app/threads"><i class="ion-arrow-left-c"></i> Back</a>
+  </ion-header-bar>
+  <ion-content>
+    <ion-refresher pulling-text="Pull to refresh" spinner="none" on-refresh="responses.refresh()">
+    </ion-refresher>
+    <ion-list>
+      <div class="card">
+        <div class="item item-text-wrap">
+          <p class="content">{{ thread.instance.content }}</p>
+          <p class="author">{{ thread.instance.created | date : 'yyyy/MM/dd H:mm'}} - {{ thread.instance.user.name }}</p>
+        </div>
+        <a class="new-response-link" ng-click="newResponseModal.show()"><i class="ion-chatbox"></i> write a response</a>
+      </div>
+      <div ng-hide="responses.instances.length > 0">
+        <div class="item item-text-wrap no-responses">
+          <p>No responses yet.</p>
+          <a ng-click="responses.load()">Reload</p>
+        </div>
+      </div>
+      <div class="card response">
+        <div class="item item-text-wrap" ng-repeat="response in responses.instances">
+          <div class="row">
+            <div class="col-10">
+              <i class="ion-ios-arrow-right"></i>
+            </div>
+            <div class="col-90">
+              <p class="content">{{ response.content }}</p>
+              <p class="author">{{ response.created | date : 'yyyy/MM/dd H:mm'}} - {{ response.user.name }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ion-list>
   </ion-content>
 </ion-view>

@@ -97,6 +97,7 @@
 .threads-container a {
   display: block;
   color: #387ef5;
+  text-decoration: none;
   font-size: 28px;
   margin-top: 3px;
 }
@@ -123,9 +124,12 @@
 }
 .threads-container .card {
   box-shadow: none;
+}
+.threads-container .card-container {
+  box-shadow: none;
   border-bottom: 1px solid #ccc;
 }
-.threads-container .card:last-child {
+.threads-container .card-container:last-child {
   border-bottom: none;
 }
 .threads-container .no-threads {
@@ -183,4 +187,54 @@
 
 .loading .loading-spinner {
   stroke: #fff;
+}
+
+.thread-detail-container a {
+  display: block;
+  color: #387ef5;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 7px;
+}
+.thread-detail-container a.back-link {
+  margin-right: auto;
+  margin-left: 8px;
+}
+.thread-detail-container .card {
+  box-shadow: none;
+}
+.thread-detail-container .card {
+  box-shadow: none;
+}
+.thread-detail-container .card:last-child {
+  border-bottom: none;
+}
+.thread-detail-container .no-responses {
+  text-align: center;
+  border: none;
+}
+.thread-detail-container .no-responses a {
+  margin-top: 10px;
+  font-size: 16px;
+}
+.thread-detail-container p.author {
+  text-align: right;
+  font-size: 12px;
+  color: #aaa;
+}
+.thread-detail-container .card {
+  box-shadow: none;
+}
+.thread-detail-container .new-response-link {
+  box-shadow: none;
+  border: none;
+  font-size: 13px;
+  text-align: right;
+}
+
+.thread {
+  border-left: 5px solid #ef473a;
+}
+.response {
+  border-left: 5px solid #387ef5;
 }

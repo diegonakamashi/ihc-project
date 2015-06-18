@@ -11,6 +11,24 @@ angular.module('ihc')
       });
     },
 
+    getOne: function (id, options) {
+      return $request('threads/' + id, {
+        method: 'GET',
+        params: {
+          filter: options
+        }
+      });
+    },
+
+    getResponses: function (id, options) {
+      return $request('threads/' + id + '/responses', {
+        method: 'GET',
+        params: {
+          filter: options
+        }
+      });
+    },
+
     create: function (data) {
       return $request('threads', {
         method: 'POST',
