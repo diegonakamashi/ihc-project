@@ -4,7 +4,7 @@ angular.module('ihc')
   var languages = $scope.languages = {};
   var threads = $scope.threads = {};
   var compose = $scope.compose = {};
-  languages.current = $localStorage.getObject('currentLanguage');
+  languages.current = $localStorage.get('currentLanguage');
 
   $ionicModal.fromTemplateUrl('js/templates/languages-modal.html', {
     scope: $scope,
@@ -30,7 +30,7 @@ angular.module('ihc')
   };
 
   languages.save = function () {
-    $localStorage.setObject('currentLanguage', languages.current);
+    $localStorage.set('currentLanguage', languages.current);
     threads.load();
     $scope.languageModal.hide();
   };
@@ -60,6 +60,7 @@ angular.module('ihc')
   };
 
   threads.filterPagination = function (options) {
+    // TODO (infinite scroll)
   };
 
   threads.load = function () {
