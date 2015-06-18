@@ -1,16 +1,17 @@
-<ion-view view-title="Threads">
+<ion-view class="threads-container">
+  <ion-header-bar>
+    <a class="language-link" ng-click="languageModal.show()"><i class="ion-android-globe"></i></a>
+    <h1 class="title">Threads</h1>
+    <a class="compose-link" ng-click="composeModal.show()"><i class="ion-compose"></i></a>
+  </ion-header-bar>
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/app/threads/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
+      <div class="card" ng-repeat="thread in threads.all">
+        <div class="item item-text-wrap">
+          <p class="content">{{ thread.content }}</p>
+          <p class="author">{{ thread.user.name }} <i class="ion-ios-chatbubble-outline"></i></p>
+        </div>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>

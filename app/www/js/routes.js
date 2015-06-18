@@ -16,15 +16,6 @@ angular.module('ihc')
       }
     }
   })
-  .state('app.languages', {
-    url: '/languages',
-    views: {
-      'languages': {
-        templateUrl: 'js/controllers/languages/languages.html',
-        controller: 'LanguagesCtrl'
-      }
-    }
-  })
   .state('app.threads', {
     url: '/threads',
     views: {
@@ -51,6 +42,11 @@ angular.module('ihc')
         controller: 'AccountCtrl'
       }
     }
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'js/controllers/login/login.html',
+    controller: 'LoginCtrl'
   });
 
   $urlRouterProvider.otherwise('/app/pulse');

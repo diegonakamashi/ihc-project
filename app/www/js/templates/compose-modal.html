@@ -1,0 +1,15 @@
+<ion-modal-view>
+  <ion-content>
+    <div class="list list-inset compose-container">
+      <a ng-click="composeModal.hide()"><i class="ion-ios-close-empty"></i></a>
+      <h2>New Thread</h2>
+      <label class="item item-input item-stacked-label">
+        <textarea placeholder="Post content..." rows="8" cols="10" ng-model="compose.content">
+        </textarea>
+      </label>
+      <button class="button button-full button-light" ng-click="compose.post()">
+        Post
+      </button>
+    </div>
+  </ion-content>
+</ion-modal-view>
