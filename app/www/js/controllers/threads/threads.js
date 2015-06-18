@@ -43,9 +43,8 @@ angular.module('ihc')
     };
     $loadingBox.show();
     $threads.create(thread).success(function (data) {
-      console.log(data);
       $loadingBox.hide();
-      $composeModal.hide();
+      $scope.composeModal.hide();
       threads.load();
     }).error(function (error) {
       $loadingBox.hide();
@@ -70,9 +69,19 @@ angular.module('ihc')
     };
     threads.filterLanguage(options);
     threads.filterPagination(options);
+    $loadingBox.show('icon');
     $threads.get(options).success(function (data) {
       threads.all = data;
-    }).error(console.log);
+      $loadingBox.hide();
+    }).error(function (error) {
+      $loadingBox.hide();
+      console.log(error);
+    });
+  };
+
+  threads.refresh = function () {
+    threads.load();
+    $scope.$broadcast('scroll.refreshComplete');
   };
 
   languages.load();

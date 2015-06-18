@@ -5,11 +5,20 @@
     <a class="compose-link" ng-click="composeModal.show()"><i class="ion-compose"></i></a>
   </ion-header-bar>
   <ion-content>
+    <ion-refresher pulling-text="Pull to refresh" spinner="none" on-refresh="threads.refresh()">
+    </ion-refresher>
     <ion-list>
+      <div ng-hide="threads.all.length > 0 && !ajax.loading">
+        <div class="item item-text-wrap no-threads">
+          <i class="ion-sad-outline"></i>
+          <p>No threads found.</p>
+          <a ng-click="threads.load()">Reload</p>
+        </div>
+      </div>
       <div class="card" ng-repeat="thread in threads.all">
         <div class="item item-text-wrap">
           <p class="content">{{ thread.content }}</p>
-          <p class="author">{{ thread.user.name }} <i class="ion-ios-chatbubble-outline"></i></p>
+          <p class="author">{{ thread.created | date : 'yyyy/MM/dd H:mm'}} - {{ thread.user.name }} <i class="ion-ios-chatbubble-outline"></i></p>
         </div>
       </div>
     </ion-list>

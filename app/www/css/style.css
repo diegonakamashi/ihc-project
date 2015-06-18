@@ -128,6 +128,18 @@
 .threads-container .card:last-child {
   border-bottom: none;
 }
+.threads-container .no-threads {
+  text-align: center;
+  border: none;
+}
+.threads-container .no-threads i {
+  font-size: 20px;
+  color: #e42012;
+}
+.threads-container .no-threads a {
+  margin-top: 20px;
+  font-size: 18px;
+}
 
 .compose-container {
   overflow: visible;
@@ -163,4 +175,12 @@
 }
 .compose-container textarea {
   resize: none;
+}
+
+.language-container i {
+  color: #387ef5;
+}
+
+.loading .loading-spinner {
+  stroke: #fff;
 }
