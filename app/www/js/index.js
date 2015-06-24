@@ -1,8 +1,11 @@
 angular.module('ihc', [
   'ionic'
 ])
-.run(function($ionicPlatform, $localStorage, $rootScope, $state, $ionicHistory) {
-  $ionicPlatform.ready(function() {
+.config(function ($ionicConfigProvider) {
+  $ionicConfigProvider.tabs.position('bottom');
+})
+.run(function ($ionicPlatform, $localStorage, $rootScope, $state, $ionicHistory) {
+  $ionicPlatform.ready(function () {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
