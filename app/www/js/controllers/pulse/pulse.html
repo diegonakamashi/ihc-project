@@ -3,24 +3,24 @@
     <h1 class="title">Pulse</h1>
   </ion-header-bar>
   <ion-content>
-    <ion-refresher pulling-text="Pull to refresh" spinner="none" on-refresh="pulses.refresh()">
+    <ion-refresher pulling-text="Puxe para recarregar" spinner="none" on-refresh="pulses.refresh()">
     </ion-refresher>
     <div class="list pulse-items">
       <a href="#/app/threads/{{ pulse.threadId || pulse.id }}" class="item {{ pulse.type }}" ng-repeat="pulse in pulses.instances | orderBy : 'created' : true">
         <div ng-if="pulse.type === 'thread'">
           <p>
-            you made a post <span class="red-text">"{{ pulse.content }}"</span>
+            você postou <span class="red-text">"{{ pulse.content }}"</span>
           </p>
           <p class="sub">
-            at {{ pulse.created | date : 'yyyy/MM/dd H:mm' }}
+            {{ pulse.created | date : 'yyyy/MM/dd H:mm' }}
           </p>
         </div>
         <div ng-if="pulse.type === 'response'">
           <p>
-            you wrote a response <span class="blue-text">"{{ pulse.content }}"</span>
+            você respondeu <span class="blue-text">"{{ pulse.content }}"</span>
           </p>
           <p class="sub">
-            at {{ pulse.created | date : 'yyyy/MM/dd H:mm' }} on "{{ pulse.thread.content }}"
+            {{ pulse.created | date : 'yyyy/MM/dd H:mm' }} em "{{ pulse.thread.content }}"
           </p>
         </div>
       </a>

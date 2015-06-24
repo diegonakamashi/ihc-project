@@ -1,5 +1,5 @@
 angular.module('ihc')
-.controller('ThreadDetailCtrl', function($scope, $stateParams, $ionicModal, $threads, $loadingBox, $localStorage, $responses) {
+.controller('ThreadDetailCtrl', function($scope, $stateParams, $ionicModal, $threads, $loadingBox, $localStorage, $responses, $alert) {
 
   var thread = $scope.thread = {};
   var responses = $scope.responses = {};
@@ -24,7 +24,7 @@ angular.module('ihc')
       $loadingBox.hide();
     }).error(function (error) {
       $loadingBox.hide();
-      console.log(error);
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
     });
   };
 
@@ -39,6 +39,10 @@ angular.module('ihc')
       userId: $localStorage.get('userId'),
       threadId: $stateParams.threadId
     };
+    if (!response.content) {
+      $scope.newResponseModal.hide();
+      return;
+    }
     $loadingBox.show();
     $responses.create(response).success(function (data) {
       $loadingBox.hide();
@@ -47,7 +51,7 @@ angular.module('ihc')
       responses.load();
     }).error(function (error) {
       $loadingBox.hide();
-      $alert(data.error.message);
+      $alert('Erro ao tentar enviar conteúdo, tente novamente mais tarde.');
     });
   };
   
@@ -64,7 +68,7 @@ angular.module('ihc')
       responses.load();
     }).error(function (error) {
       $loadingBox.hide();
-      console.log(error);
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
     });
   };
 

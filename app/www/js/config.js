@@ -1,6 +1,6 @@
 angular.module('ihc')
 .constant('$config', {
   api: {
-    url: 'http://mysterious-taiga-9334.herokuapp.com/api/'
+    url: 'http://localhost:3000/api/'
   }
 });

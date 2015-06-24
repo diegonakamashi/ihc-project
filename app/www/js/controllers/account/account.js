@@ -11,7 +11,7 @@ angular.module('ihc')
       $loadingBox.hide();
     }).error(function (data) {
       $loadingBox.hide();
-      $alert(data.error.message);
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
     });
   };
 
@@ -28,7 +28,7 @@ angular.module('ihc')
       account.load();
     }).error(function (data) {
       $loadingBox.hide();
-      $alert(data.error.message);
+      $alert('Erro ao tentar enviar conteúdo, tente novamente mais tarde.');
     });
   };
 
@@ -42,7 +42,7 @@ angular.module('ihc')
       $state.go('login');
     }).catch(function (data) {
       $loadingBox.hide();
-      $alert(data.error.message);
+      $alert('Erro inesperado, tente novamente mais tarde.');
     });
   };
 

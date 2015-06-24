@@ -26,7 +26,9 @@ angular.module('ihc')
   languages.load = function () {
     $languages.get().success(function (data) {
       languages.all = data;
-    }).error(console.log);
+    }).error(function () {
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
+    });
   };
 
   languages.save = function () {
@@ -41,6 +43,10 @@ angular.module('ihc')
       languageId: languages.current,
       userId: $localStorage.get('userId')
     };
+    if (!thread.content) {
+      $scope.composeModal.hide();
+      return;
+    }
     $loadingBox.show();
     $threads.create(thread).success(function (data) {
       $loadingBox.hide();
@@ -49,7 +55,7 @@ angular.module('ihc')
       threads.load();
     }).error(function (error) {
       $loadingBox.hide();
-      $alert(data.error.message);
+      $alert('Erro ao tentar enviar conteúdo, tente novamente mais tarde.');
     });
   };
 
@@ -72,7 +78,7 @@ angular.module('ihc')
       $loadingBox.hide();
     }).error(function (error) {
       $loadingBox.hide();
-      console.log(error);
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
     });
   };
 

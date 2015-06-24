@@ -1,9 +1,9 @@
 <ion-view class="thread-detail-container">
   <ion-header-bar>
-    <a class="back-link" href="#/app/threads"><i class="ion-arrow-left-c"></i> Back</a>
+    <a class="back-link" href="#/app/threads"><i class="ion-arrow-left-c"></i> Voltar</a>
   </ion-header-bar>
   <ion-content>
-    <ion-refresher pulling-text="Pull to refresh" spinner="none" on-refresh="responses.refresh()">
+    <ion-refresher pulling-text="Puxe para recarregar" spinner="none" on-refresh="responses.refresh()">
     </ion-refresher>
     <ion-list>
       <div class="card">
@@ -11,12 +11,12 @@
           <p class="content">{{ thread.instance.content }}</p>
           <p class="author">{{ thread.instance.created | date : 'yyyy/MM/dd H:mm'}} - {{ thread.instance.user.name }}</p>
         </div>
-        <a class="new-response-link" ng-click="newResponseModal.show()"><i class="ion-chatbox"></i> write a response</a>
+        <a class="new-response-link" ng-click="newResponseModal.show()"><i class="ion-chatbox"></i> escreva uma resposta</a>
       </div>
       <div ng-hide="responses.instances.length > 0">
         <div class="item item-text-wrap no-responses">
-          <p>No responses yet.</p>
-          <a ng-click="responses.load()">Reload</p>
+          <p>Sem respostas...</p>
+          <a ng-click="responses.load()">Recarregar</p>
         </div>
       </div>
       <div class="card response">

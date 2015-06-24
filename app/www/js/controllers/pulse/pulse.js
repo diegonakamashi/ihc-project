@@ -1,5 +1,5 @@
 angular.module('ihc')
-.controller('PulseCtrl', function($scope, $responses, $loadingBox, $threads, $localStorage, $utils) {
+.controller('PulseCtrl', function($scope, $responses, $loadingBox, $threads, $localStorage, $utils, $alert) {
 
   var pulses = $scope.pulses = {};
   pulses.instances = [];
@@ -27,7 +27,7 @@ angular.module('ihc')
       $loadingBox.hide();
     }).error(function (error) {
       $loadingBox.hide();
-      console.log(error);
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
     });
   };
 
@@ -42,7 +42,7 @@ angular.module('ihc')
     $responses.get(options).success(function (data) {
       pulses.addToInstances(data, 'response');
     }).error(function (error) {
-      console.log(error);
+      $alert('Erro ao tentar carregar conteúdo, tente novamente mais tarde.');
     });
   };
 
