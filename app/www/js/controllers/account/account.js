@@ -36,6 +36,9 @@ angular.module('ihc')
     $loadingBox.show();
     $user.logout().then(function () {
       $loadingBox.hide();
+      account.name = '';
+      account.password = '';
+      account.email = '';
       $state.go('login');
     }).catch(function (data) {
       $loadingBox.hide();

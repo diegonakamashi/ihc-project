@@ -16,7 +16,7 @@ angular.module('ihc')
     var id = $stateParams.threadId;
     var options = {
       include: 'user',
-      sort: ''
+      order: 'created desc'
     };
     $loadingBox.show();
     $threads.getResponses(id, options).success(function (data) {
@@ -43,6 +43,7 @@ angular.module('ihc')
     $responses.create(response).success(function (data) {
       $loadingBox.hide();
       $scope.newResponseModal.hide();
+      responses.new.content = '';
       responses.load();
     }).error(function (error) {
       $loadingBox.hide();

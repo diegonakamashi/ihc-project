@@ -1,7 +1,7 @@
 angular.module('ihc', [
   'ionic'
 ])
-.run(function($ionicPlatform, $localStorage, $rootScope, $state) {
+.run(function($ionicPlatform, $localStorage, $rootScope, $state, $ionicHistory) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -15,6 +15,8 @@ angular.module('ihc', [
     var userId = $localStorage.get('userId');
     if (!token && toState.name !== 'login') {
       event.preventDefault();
+      $ionicHistory.clearCache();
+      $ionicHistory.clearHistory();
       $state.go('login');
     }
   });

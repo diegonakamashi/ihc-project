@@ -1,5 +1,5 @@
 angular.module('ihc')
-.service('$user', function ($request, $localStorage, $q) {
+.service('$user', function ($request, $localStorage, $q, $ionicHistory) {
   return {
 
     get: function () {
@@ -56,9 +56,9 @@ angular.module('ihc')
         $request('users/logoff/' + accessToken, {
           method: 'DELETE'
         }).success(function (data) {
-          $localStorage.set('accessToken', null);
-          $localStorage.set('userId', null);
-          $localStorage.set('currentLanguage', null);
+          $ionicHistory.clearCache();
+          $ionicHistory.clearHistory();
+          $localStorage.clear();
           resolve({ success: true });
         }).error(reject);
       });

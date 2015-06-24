@@ -5,7 +5,8 @@ angular.module('ihc')
   .state('app', {
     url: "/app",
     abstract: true,
-    templateUrl: "js/controllers/app/app.html"
+    templateUrl: "js/controllers/app/app.html",
+    controller: "AppCtrl"
   })
   .state('app.pulse', {
     url: '/pulse',

@@ -45,6 +45,7 @@ angular.module('ihc')
     $threads.create(thread).success(function (data) {
       $loadingBox.hide();
       $scope.composeModal.hide();
+      compose.content = '';
       threads.load();
     }).error(function (error) {
       $loadingBox.hide();
@@ -57,16 +58,12 @@ angular.module('ihc')
   };
 
   threads.load = function () {
-    if (!languages.current) {
-      $scope.languageModal.show();
-      return;
-    }
     var options = {
       where: {
         languageId: languages.current
       },
       include: 'user',
-      order: 'created desc'
+      order: 'updated desc'
     };
     threads.filterPagination(options);
     $loadingBox.show();

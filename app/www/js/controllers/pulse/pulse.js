@@ -15,9 +15,10 @@ angular.module('ihc')
   };
 
   pulses.loadThreads = function () {
+    var userId = $localStorage.get('userId');
     var options = {
       where: {
-        userId: $localStorage.get('userId')
+        userId: userId
       }
     };
     $loadingBox.show();
@@ -31,10 +32,12 @@ angular.module('ihc')
   };
 
   pulses.loadResponses = function () {
+    var userId = $localStorage.get('userId');
     var options = {
       where: {
-        userId: $localStorage.get('userId')
-      }
+        userId: userId
+      },
+      include: 'thread'
     };
     $responses.get(options).success(function (data) {
       pulses.addToInstances(data, 'response');

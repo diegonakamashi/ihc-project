@@ -19,7 +19,7 @@
         <div class="card">
           <div class="item item-text-wrap">
             <p class="content">{{ thread.content }}</p>
-            <p class="author">{{ thread.created | date : 'yyyy/MM/dd H:mm'}} - {{ thread.user.name }} <i class="ion-ios-chatbubble-outline"></i></p>
+            <p class="sub">{{ thread.updated | date : 'yyyy/MM/dd H:mm'}} - {{ thread.user.name }} / {{ thread.responseCount || 0 }} responses<i class="ion-ios-chatbubble-outline"></i></p>
           </div>
         </div>
       </a>
