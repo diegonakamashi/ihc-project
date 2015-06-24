@@ -10,7 +10,7 @@ angular.module('ihc')
     },
 
     login: function (authData) {
-      return $q(function (resolve, reject) {
+      return new $q(function (resolve, reject) {
         var auth = {
           email: authData.email,
           password: authData.password
@@ -51,7 +51,7 @@ angular.module('ihc')
     },
 
     logout: function () {
-      return $q(function (resolve, reject) {
+      return new $q(function (resolve, reject) {
         var accessToken = $localStorage.get('accessToken');
         $request('users/logoff/' + accessToken, {
           method: 'DELETE'
